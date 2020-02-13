@@ -25,7 +25,7 @@ def main():
     with open(CONFIG_FILE) as f:
         data = yaml.load(f)
         comms_config = {
-            "rx_ip": "127.0.0.1",
+            "rx_ip": data['joystick']['ip'],
             "rx_port": data['joystick']['port'],
             "tx_ip": data['core']['ip'],
             "tx_port": data['core']['joystickPort']
