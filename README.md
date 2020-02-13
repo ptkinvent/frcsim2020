@@ -119,7 +119,15 @@ simulator.
 The joystick sends the user's commands to the robot's core logic as JSON over UDP. In the default configuration, these
 commands are sent to localhost:4000. A sample of this JSON string follows:
 ```json
-{ 'leftJoystick': [ 0000, 0000 ], 'rightJoystick': [ 0000, 0000 ], 'dpad': [ 0, 0, 0, 0 ], 'buttons': [ 0, 0, 0, 0 ], 'back': 0, 'select': 0, 'start': 0 }
+{
+  'leftJoystick': [0000, 0000],
+  'rightJoystick': [0000, 0000],
+  'dpad': [0, 0, 0, 0],
+  'buttons': [0, 0, 0, 0],
+  'back': 0,
+  'select': 0,
+  'start': 0
+}
 ```
 
 | Character(s)  | Description                     | Range    |
@@ -143,7 +151,8 @@ commands are sent to localhost:4000. A sample of this JSON string follows:
 ### Core -> Joystick ###
 The core logic also sends back an empty JSON string to the joystick of the following format:
 ```json
-{}
+{
+}
 ```
 The purpose of this empty message is to serve as a "heartbeat" to let the joystick know whether the controls logic is
 still alive. This allows the joystick to display a "connected" or "disconnected" message in its GUI.
@@ -153,7 +162,14 @@ The core logic performs whatever logic (PID, traction control, etc.) given the c
 vehicle's state from the sim and then construct new commands to send to the vehicle. The message sent to the vehicle has
 the following form:
 ```json
-{ 'leftDriveMotorSpeed': 0000, 'rightDriveMotorSpeed': 0000, 'elevatorMotorSpeed': 0000, 'back': 0, 'guide': 0, 'start': 0 }
+{
+  'leftDriveMotorSpeed': 0000,
+  'rightDriveMotorSpeed': 0000,
+  'elevatorMotorSpeed': 0000,
+  'back': 0,
+  'guide': 0,
+  'start': 0
+}
 ```
 
 | Character(s)  | Description                     | Range    |
@@ -165,7 +181,11 @@ the following form:
 ### Sim -> Core ###
 The vehicle continuously sends state information back to the controls logic. This message has the following form:
 ```json
-{ 'leftDriveEncoder': 0000, 'rightDriveEncoder': 0000, 'elevatorEncoder': 0000 }
+{
+  'leftDriveEncoder': 0000,
+  'rightDriveEncoder': 0000,
+  'elevatorEncoder': 0000
+}
 ```
 
 | Character(s)  | Description                     | Range    |
