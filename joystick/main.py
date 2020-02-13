@@ -23,7 +23,7 @@ def main():
 
     # Read config file
     with open(CONFIG_FILE) as f:
-        data = yaml.load(f)
+        data = yaml.load(f, Loader=yaml.FullLoader)
         comms_config = {
             "rx_ip": data['joystick']['ip'],
             "rx_port": data['joystick']['port'],
