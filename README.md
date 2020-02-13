@@ -27,7 +27,7 @@ install, run:
 ```sh
 sudo apt install python-pip
 pip install PyYAML
-sudo apt install python-qt4 # Needed for virtual controller
+sudo apt install python-qt4 libcanberra-gtk-module # Needed for virtual controller
 sudo apt install xboxdrv # Needed for virtual controller
 ```
 To launch the virtual controller, run:
